@@ -1,0 +1,154 @@
+{
+  "network": "studionet",
+  "chain_id": 61999,
+  "contract": "0xfA9c931215e0F5c468322Ae5bcAe74733CB59320",
+  "explorer": "https://explorer-studio.genlayer.com/address/0xfA9c931215e0F5c468322Ae5bcAe74733CB59320",
+  "source_sha256": "4eb222bbd4b35d3c5ed833b1b38a539f53f66fffcbec154ec0c2fe4608207bfa",
+  "constructor": {},
+  "deployer": "0xE9dc04138bc8c68649Feba42390d9d2Cc3E8386B",
+  "steps": [
+    {
+      "step": "deploy",
+      "method": "deploy",
+      "from": "0xE9dc04138bc8c68649Feba42390d9d2Cc3E8386B",
+      "tx": "0xcb696374ca66ab25ba04d35c55ccb4620e2d4686b01d5c3fa469f5a3b16651d6",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": "",
+      "address": "0xfA9c931215e0F5c468322Ae5bcAe74733CB59320"
+    },
+    {
+      "step": "owner pays the reward in for the demo page",
+      "method": "open",
+      "from": "0x33dA862C8e1C2BaB2215F0f24e5560Bf44009383",
+      "tx": "0x41a43832669f6e96c3450258e2176101f0a87398011f34d837866294afa5d741",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "a link the page lists that answers 200: tried, not dead, not paid",
+      "method": "claim",
+      "from": "0xfB57A91Ca19Ba785415Ea2f269d4B7444b075EA4",
+      "tx": "0xff26d81e68c4cda2e4754deb6116d3eb518942aa0f67bf60b0cd61a460e71107",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "the owner claims on their own bounty: refused",
+      "method": "claim",
+      "from": "0x33dA862C8e1C2BaB2215F0f24e5560Bf44009383",
+      "tx": "0x12d24d6fb4d9c919b86fcd8391075afa387594a78b44b596df82fb09c736ab1d",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] the owner cannot claim on their own bounty"
+    },
+    {
+      "step": "a link the page never lists: tried, not paid",
+      "method": "claim",
+      "from": "0x98D2C10D23c0f9a90dE90C6115597A45539b3491",
+      "tx": "0xdc882b5e6532bc79b025a960391bcb33f16277f200f61d3c0a5ef460d539d75c",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "the same link again: refused for free",
+      "method": "claim",
+      "from": "0xfB57A91Ca19Ba785415Ea2f269d4B7444b075EA4",
+      "tx": "0xb14730b95f5ba5f30deb45efa16f12ec409ff0ef6844f041819003072be3533a",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] this link was already tried on this bounty"
+    },
+    {
+      "step": "a listed link that answers 404: paid at once",
+      "method": "claim",
+      "from": "0x98D2C10D23c0f9a90dE90C6115597A45539b3491",
+      "tx": "0xa16212c464dd4cacd13d258a2b1e924afd49a1670ab96c2bcd3be7ead9cb0f57",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "the bounty is already paid: refused",
+      "method": "claim",
+      "from": "0xfB57A91Ca19Ba785415Ea2f269d4B7444b075EA4",
+      "tx": "0x4cf5c10854faee3dc6b6f59ac4e170f9c371db43e20db2e991ea177cbed0b30a",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] this bounty is paid; nothing is left to find"
+    },
+    {
+      "step": "settle on a paid bounty: refused",
+      "method": "settle",
+      "from": "0xfB57A91Ca19Ba785415Ea2f269d4B7444b075EA4",
+      "tx": "0x6ee79103393f9ce9831dc4e0f8a1be376a909f9c6e7c94db6f1c94bb21f90ae5",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] this bounty is paid; nothing to settle"
+    }
+  ],
+  "demo": {
+    "page": "https://raw.githubusercontent.com/Elinajafari/linkcheck/main/demo/page.html",
+    "listed_alive": "https://raw.githubusercontent.com/Elinajafari/linkcheck/main/demo/alive.txt",
+    "listed_dead": "https://raw.githubusercontent.com/Elinajafari/linkcheck/main/demo/gone.txt",
+    "never_listed": "https://raw.githubusercontent.com/Elinajafari/linkcheck/main/demo/never-listed.txt",
+    "reward_wei": "10000000000000000",
+    "bounty": {
+      "claims": 3,
+      "closes_at": "2026-11-17T17:53:42Z",
+      "dead_link": "https://raw.githubusercontent.com/Elinajafari/linkcheck/main/demo/gone.txt",
+      "opened_at": "2026-11-17T16:53:42Z",
+      "owner": "0x33dA862C8e1C2BaB2215F0f24e5560Bf44009383",
+      "page": "https://raw.githubusercontent.com/Elinajafari/linkcheck/main/demo/page.html",
+      "reward": "10000000000000000",
+      "settled_at": "2026-11-17T16:55:11Z",
+      "status": "paid",
+      "winner": "0x98D2C10D23c0f9a90dE90C6115597A45539b3491"
+    },
+    "claims": {
+      "claims": [
+        {
+          "at": "2026-11-17T16:54:05.363137Z",
+          "dead": "no",
+          "id": 0,
+          "link": "https://raw.githubusercontent.com/Elinajafari/linkcheck/main/demo/alive.txt",
+          "listed": "yes",
+          "status": "200",
+          "who": "0xfB57A91Ca19Ba785415Ea2f269d4B7444b075EA4"
+        },
+        {
+          "at": "2026-11-17T16:54:36.991383Z",
+          "dead": "no",
+          "id": 1,
+          "link": "https://raw.githubusercontent.com/Elinajafari/linkcheck/main/demo/never-listed.txt",
+          "listed": "no",
+          "status": "000",
+          "who": "0x98D2C10D23c0f9a90dE90C6115597A45539b3491"
+        },
+        {
+          "at": "2026-11-17T16:55:11.004633Z",
+          "dead": "yes",
+          "id": 2,
+          "link": "https://raw.githubusercontent.com/Elinajafari/linkcheck/main/demo/gone.txt",
+          "listed": "yes",
+          "status": "404",
+          "who": "0x98D2C10D23c0f9a90dE90C6115597A45539b3491"
+        }
+      ],
+      "page": "https://raw.githubusercontent.com/Elinajafari/linkcheck/main/demo/page.html"
+    },
+    "held_after": "0",
+    "winner_balance_before": "0",
+    "winner_balance_after": "10000000000000000",
+    "winner_gain": "10000000000000000",
+    "accounts": {
+      "owner": "0x33dA862C8e1C2BaB2215F0f24e5560Bf44009383",
+      "ann": "0x98D2C10D23c0f9a90dE90C6115597A45539b3491",
+      "ben": "0xfB57A91Ca19Ba785415Ea2f269d4B7444b075EA4"
+    },
+    "balance_note": "the payout lands after the receipt; the balance was read again from the chain once it had"
+  }
+}

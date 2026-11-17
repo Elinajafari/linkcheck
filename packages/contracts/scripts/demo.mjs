@@ -1,4 +1,4 @@
-// Put the demo on the explorer: a paid claim, an unpaid claim, and the refusals.
+﻿// Put the demo on the explorer: a paid claim, an unpaid claim, and the refusals.
 //
 //   pnpm demo:contract        (after pnpm deploy:contract)
 //
@@ -8,7 +8,7 @@
 // not list at all. The validators fetch the page and the link themselves.
 
 import { readFileSync, writeFileSync } from "node:fs";
-import { RECORD_FILE, accountFrom, balanceOf, clientFor, fundAccount, loadEnv, network, readRetry, recorder, sourceSha256 } from "./lib.mjs";
+import { RECORD_FILE, accountFrom, balanceOf, clientFor, fundAccount, loadEnv, network, readRetry, recorder, sleep, sourceSha256 } from "./lib.mjs";
 
 loadEnv();
 const net = network();
@@ -47,7 +47,8 @@ await w("ann", "claim", [0n, DEAD], { step: "a listed link that answers 404: pai
 await w("ben", "claim", [0n, DEAD], { step: "the bounty is already paid: refused", expect: "refused" });
 await w("ben", "settle", [0n], { step: "settle on a paid bounty: refused", expect: "refused" });
 
-const annAfter = await balanceOf(ro, who.ann.address);
+let annAfter = await balanceOf(ro, who.ann.address);
+for (let i = 0; i < 20 && annAfter <= annBefore; i++) { await sleep(10_000); annAfter = await balanceOf(ro, who.ann.address); } // the payout lands after the receipt
 record.steps.push(...rec.steps);
 record.demo = {
   page: PAGE, listed_alive: LIVE, listed_dead: DEAD, never_listed: UNLISTED,
