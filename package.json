@@ -1,0 +1,19 @@
+﻿{
+  "name": "linkcheck",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Linkcheck: a bounty paid to the first person who proves a link on a page is dead. Validators fetch the page and the link and read the HTTP status; no model is asked.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Elina (https://github.com/Elinajafari)",
+  "repository": { "type": "git", "url": "https://github.com/Elinajafari/linkcheck" },
+  "scripts": {
+    "test": "pnpm --filter @linkcheck/contracts test",
+    "lint:genvm": "node packages/contracts/scripts/lint.mjs",
+    "deploy:contract": "node packages/contracts/scripts/deploy.mjs",
+    "demo:contract": "node packages/contracts/scripts/demo.mjs",
+    "verify:contract": "node packages/contracts/scripts/verify.mjs"
+  },
+  "engines": { "node": ">=20" },
+  "packageManager": "pnpm@10.18.2"
+}
